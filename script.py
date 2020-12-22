@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 import sqlite3
 import re
+import os
+
+# stop chrome
+try:
+    os.system("taskkill /im chrome.exe /f")
+except:
+    print("Chrome is already closed.")
+
+
+# windows user
+user = input("What is your windows user? ")
 
 # function
 def deleteHistory():
@@ -22,7 +33,7 @@ def deleteHistory():
     return count
 
 # connect to the database
-conn = sqlite3.connect('c:/Users/Pablo/AppData/Local/Google/Chrome/User Data/Default/History')
+conn = sqlite3.connect('c:/Users/{}/AppData/Local/Google/Chrome/User Data/Default/History'.format(user))
 c = conn.cursor()
 
 # history count
