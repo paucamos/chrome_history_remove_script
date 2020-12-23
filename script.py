@@ -1,6 +1,18 @@
 #!/usr/bin/env python3
 import sqlite3
 import re
+import os
+import psutil
+
+# stop chrome
+def get_pid(name):
+    notepads = (item.pid for item in psutil.process_iter() if item.name() == name)
+    return list(notepads)
+
+# check if any chrome process is open 
+if len(get_pid("chrome.exe")) > 0:
+    # close them
+    os.system("taskkill /im chrome.exe 2> nul")
 
 # function
 def deleteHistory():
@@ -36,5 +48,7 @@ confirmation = input("Are you sure you want to remove {} (y/n)".format(prompt))
 if (confirmation == "y"):
     elements = deleteHistory()
     print("{} elements have been removed".format(elements))
-else:
+elif (confirmation == "n"):
     print("No records have been removed.")
+else:
+    print("Script closed.")
