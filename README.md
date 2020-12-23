@@ -6,5 +6,7 @@ A script to delete chrome history by words.
 * Enjoy
 
 ### Packages needed:
-*psutil(https://pypi.org/project/psutil/)
+* [psutil](https://pypi.org/project/psutil/)
+
+
 _Written in Python3.8_
