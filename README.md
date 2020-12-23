@@ -5,4 +5,6 @@ A script to delete chrome history by words.
 * You write the name of the urls you want to delete
 * Enjoy
 
-_ Written in Python3.8_
+### Packages needed:
+*psutil(https://pypi.org/project/psutil/)
+_Written in Python3.8_
