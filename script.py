@@ -14,6 +14,9 @@ if len(get_pid("chrome.exe")) > 0:
     # close them
     os.system("taskkill /im chrome.exe 2> nul")
 
+# windows user
+user = input("What is your windows user? ")
+
 # function
 def deleteHistory():
     count = 0
@@ -34,7 +37,7 @@ def deleteHistory():
     return count
 
 # connect to the database
-conn = sqlite3.connect('c:/Users/Pablo/AppData/Local/Google/Chrome/User Data/Default/History')
+conn = sqlite3.connect('c:/Users/{}/AppData/Local/Google/Chrome/User Data/Default/History'.format(user))
 c = conn.cursor()
 
 # history count
